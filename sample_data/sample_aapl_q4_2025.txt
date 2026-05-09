@@ -1,0 +1,58 @@
+Company: Apple Inc.
+Ticker: AAPL
+Fiscal Period: Q4 FY2025
+Call Date: 2025-10-30
+
+Operator: Good day everyone and welcome to the Apple Q4 fiscal 2025 earnings conference call. Today's call is being recorded.
+
+Suhasini Chandramouli -- Director of Investor Relations: Good afternoon and thanks for joining us. Speaking first today is Apple's CEO Tim Cook, and he will be followed by CFO Luca Maestri. After that we will open the call to questions from analysts.
+
+Tim Cook -- Chief Executive Officer: Thank you Suhasini. Good afternoon everyone. We are pleased to report record Q4 revenue of $94.9 billion, up 6 percent year over year. We delivered an all-time record for services at $25.0 billion, up 14 percent. iPhone revenue was $46.2 billion, up 6 percent year over year, in line with our expectations. Mac revenue grew 1 percent to $7.7 billion, iPad declined 1 percent to $7.0 billion, and Wearables, Home and Accessories was up 2 percent at $9.0 billion. Greater China revenue was $15.3 billion, down 2 percent year over year, reflecting some softness in the consumer electronics market. Apple Intelligence has now rolled out in 25 countries and we are pleased with early engagement. We exited the quarter with around 2.4 billion active devices, an all-time high.
+
+Luca Maestri -- Chief Financial Officer: Thank you Tim. A few details. Gross margin was 46.2 percent, ahead of the high end of our guidance, driven by a richer services mix and favourable foreign exchange. Operating expenses were $14.4 billion. Operating income was $29.6 billion. Cash net of debt was $54 billion. Capex for the year came in at $9.5 billion, slightly below the prior year. Looking forward to Q1 fiscal 2026, we expect total revenue to grow low to mid single digits year over year. We expect services revenue growth to be around the same level as Q4. We expect gross margin to be in the range of 46 to 47 percent. Tax rate around 16.5 percent.
+
+Operator: Thank you. The first question is from Erik Woodring of Morgan Stanley.
+
+Erik Woodring -- Morgan Stanley: Tim, on China. Down 2 percent year over year is better than the market feared but still weak. Can you give us colour on the underlying iPhone trajectory in China and whether you see a path to growth in Q1?
+
+Tim Cook -- Chief Executive Officer: Sure Erik. Greater China revenue was 2 percent down year over year. Excluding the foreign exchange headwind it was actually flat. iPhone in China grew slightly. The macro consumer is still cautious. We are confident in our position with iPhone 17 launches and we expect China to be flat to slightly positive in Q1 on a constant currency basis, all else equal.
+
+Erik Woodring -- Morgan Stanley: And on services growth, 14 percent is great. Sustainable?
+
+Tim Cook -- Chief Executive Officer: We are confident in the trajectory. We expect services to grow at a similar pace in Q1.
+
+Operator: Next question is from Wamsi Mohan of Bank of America.
+
+Wamsi Mohan -- Bank of America: On Apple Intelligence, can you frame the financial contribution? And does it shorten the iPhone replacement cycle?
+
+Tim Cook -- Chief Executive Officer: We are not going to size the financial contribution discretely. What I can tell you is engagement with Apple Intelligence features is strong, and our iPhone 17 mix is skewed more toward Pro and Pro Max than the prior cycle, which is a good signal. We do believe AI will be a tailwind to iPhone over time, but we are not changing our framework on replacement cycles.
+
+Operator: Next question is from Aaron Rakers of Wells Fargo.
+
+Aaron Rakers -- Wells Fargo: Luca, gross margin guidance of 46 to 47 percent for Q1. What is the swing factor?
+
+Luca Maestri -- Chief Financial Officer: We expect commodity costs to be roughly stable. Foreign exchange should be a slight headwind in Q1. The mix benefit from services should continue. We are confident in the 46 to 47 percent range.
+
+Operator: Next question is from Krish Sankar of TD Cowen.
+
+Krish Sankar -- TD Cowen: On Vision Pro, units are still small. What is the strategy from here?
+
+Tim Cook -- Chief Executive Officer: Vision Pro remains an early product. We are committed to the spatial computing roadmap. Near term we are focused on enterprise and developer adoption, where we have seen strong traction. We don't disclose unit numbers for Vision Pro.
+
+Operator: Next question is from Samik Chatterjee of JPMorgan.
+
+Samik Chatterjee -- JPMorgan: On the AI capex required to support Apple Intelligence, you have been described as relatively capital-light versus peers. Will that change?
+
+Luca Maestri -- Chief Financial Officer: We will spend what we need to. Our model relies on a hybrid of on-device intelligence and Private Cloud Compute, which is more efficient than pure cloud inference. We expect FY2026 capex to be modestly higher than FY2025 but not in the same magnitude as the hyperscalers.
+
+Operator: Last question is from Atif Malik of Citi.
+
+Atif Malik -- Citi: On capital return, you bought back $24 billion in Q4. Pace into Q1?
+
+Luca Maestri -- Chief Financial Officer: We will continue to return capital aggressively. We expect to maintain a pace consistent with the run rate. We do not provide explicit quarterly guidance on buybacks.
+
+Operator: Thank you. That concludes the question and answer session. I'll turn the call back to Tim Cook.
+
+Tim Cook -- Chief Executive Officer: Thanks everyone. We are pleased with how FY2025 finished and confident about the year ahead. The combination of a record installed base, Apple Intelligence, and our services momentum gives us a powerful platform. Thanks for joining us today.
+
+Operator: This concludes today's call.

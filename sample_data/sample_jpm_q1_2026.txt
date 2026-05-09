@@ -1,0 +1,56 @@
+Company: JPMorgan Chase & Co.
+Ticker: JPM
+Fiscal Period: Q1 FY2026
+Call Date: 2026-04-12
+
+Operator: Welcome to JPMorgan Chase's first quarter 2026 earnings call. The call is being recorded.
+
+Mikael Grubb -- Head of Investor Relations: Good morning and welcome. With me on the call are Jamie Dimon, Chairman and CEO, and Jeremy Barnum, Chief Financial Officer. As always there are forward-looking statements. With that I will turn it over to Jeremy.
+
+Jeremy Barnum -- Chief Financial Officer: Thanks Mikael. Good morning everyone. The firm reported $14.5 billion of net income, EPS of $5.04, and revenue of $43.6 billion. Return on tangible common equity was 21 percent, an excellent result. Net interest income excluding markets was $23.0 billion, up 2 percent sequentially, slightly above our prior outlook. Investment banking fees were $2.4 billion, up 31 percent year over year, reflecting a recovery in advisory and equity capital markets. Markets revenue was $8.3 billion, down 1 percent year over year. Credit costs were $1.9 billion, including $1.1 billion of net charge offs and an $800 million reserve build. Card net charge off rate was 3.55 percent, broadly in line with our expectations.
+
+For the full year, we are now expecting NII excluding markets to be approximately $93 billion, up from our prior guidance of around $90 billion. The driver is higher cash deployment and the flatter yield curve, partly offset by deposit margin compression. We expect adjusted expense to be around $94 billion. We anticipate the card net charge off rate to be around 3.6 percent for the full year. CET1 ratio at quarter end was 15.4 percent.
+
+Jamie Dimon -- Chairman and Chief Executive Officer: Thanks Jeremy. The firm had an outstanding quarter. Investment banking is showing real recovery, consumer credit is normalising, and our businesses are performing well across the board. I want to make a few comments on the macro and on capital. On the macro, we continue to see strong consumer spend, but lower income consumers are showing signs of fatigue. The labour market is softening at the margins. On geopolitics, the situation in the Middle East and the trade tensions remain a concern. On capital, our CET1 is at 15.4 percent which is well above our 12.5 percent target. We will continue to return capital aggressively. We are confident in our position. We are well capitalised, well reserved, and well positioned.
+
+Operator: Thank you. The first question is from Mike Mayo of Wells Fargo.
+
+Mike Mayo -- Wells Fargo: Jeremy on the NII raise to around $93 billion, that is a $3 billion lift. How much is the curve and how much is the cash deployment? And do you have headroom from here?
+
+Jeremy Barnum -- Chief Financial Officer: Roughly half is the curve, half is the cash deployment. From here, headroom depends on the path of rates. We expect a relatively stable trajectory through the year, all else equal. We are not raising the run rate further at this point.
+
+Operator: Next question is from Glenn Schorr of Evercore ISI.
+
+Glenn Schorr -- Evercore ISI: On investment banking, 31 percent year over year growth. Sustainable into Q2?
+
+Jamie Dimon -- Chairman and CEO: The pipeline is strong. We don't break out the IB pipeline numerically, but I can tell you it is the strongest in 18 months. M&A is healthy and equity capital markets is strong. We expect Q2 to be solid, all else equal.
+
+Operator: Next question is from Steven Chubak of Wolfe Research.
+
+Steven Chubak -- Wolfe Research: On capital. CET1 at 15.4 percent versus your 12.5 percent target leaves a lot of room. Is there any update on capital return given the new Basel III endgame?
+
+Jamie Dimon -- Chairman and CEO: We will continue to return capital aggressively. We are not going to give a specific number this quarter. We are not opposed to special dividends in the right circumstance. The board reviews these things every quarter.
+
+Operator: Next question is from Jim Mitchell of Seaport Research.
+
+Jim Mitchell -- Seaport Research: Credit card net charge off rate guide of around 3.6 percent for the full year. Where does this peak?
+
+Jeremy Barnum -- Chief Financial Officer: We expect the charge off rate to be around 3.6 percent on a full year basis, with some seasonality. We are not comfortable saying we have peaked. We do see the trajectory normalising and we are confident in the underlying credit quality.
+
+Operator: Next question is from Erika Najarian of UBS.
+
+Erika Najarian -- UBS: On expenses. The $94 billion guide implies modest growth from FY2025. What buckets are you investing in?
+
+Jeremy Barnum -- Chief Financial Officer: Volume related, which scales with the business. Tech and modernisation spend, which we are committed to. Marketing in card. And bankers in IB and middle market. We are confident in the operating leverage.
+
+Operator: Last question is from Ebrahim Poonawala of Bank of America.
+
+Ebrahim Poonawala -- Bank of America: On credit reserves. The $800 million build, can you talk about the macro view embedded?
+
+Jeremy Barnum -- Chief Financial Officer: The build reflects volume growth and modest deterioration in our weighted economic scenarios. We are not making a big macro call. We assume a relatively benign baseline with downside scenarios appropriately weighted.
+
+Operator: Thank you. That concludes the question and answer session.
+
+Jamie Dimon -- Chairman and CEO: Thanks everyone. The franchise is performing well. We are confident in the year ahead. Thanks for joining.
+
+Operator: This concludes today's call.

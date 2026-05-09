@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BRIEF | Earnings Call Summariser</title>
+  <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <div class="ticker">
+    <span class="t-tag">DAY 07</span>
+    <span class="t-sep">/</span>
+    <span class="t-tag">BRIEF</span>
+    <span class="t-sep">/</span>
+    <span class="t-tag">EARNINGS CALL SUMMARISER</span>
+    <span class="t-spacer"></span>
+    <span class="t-tag">DEEPSEEK</span>
+    <span class="t-pill {% if env_key_ok %}is-live{% else %}is-warn{% endif %}">
+      {% if env_key_ok %}LIVE{% else %}NO KEY{% endif %}
+    </span>
+  </div>
+
+  <header class="masthead">
+    <div class="mast-row">
+      <h1 class="wordmark">BRIEF<span class="dot">.</span></h1>
+      <div class="mast-meta">
+        <div><span class="k">VOL</span><span class="v">07</span></div>
+        <div><span class="k">ISSUE</span><span class="v">EARNINGS</span></div>
+        <div><span class="k">PORT</span><span class="v">127.0.0.1:1007</span></div>
+      </div>
+    </div>
+    <div class="strap">
+      <span class="strap-tag">A BUY-SIDE ANALYST'S READ ON A 60-MINUTE CALL</span>
+      <span class="strap-rule"></span>
+      <span class="strap-tag is-orange">VERDICT . GUIDANCE . THEMES . Q&amp;A . TONE CURVE</span>
+    </div>
+  </header>
+
+  <main class="page">
+
+    <section class="dock">
+      <div class="dock-stamp">
+        <span class="stamp-num">01</span>
+        <span class="stamp-lab">CONTROL</span>
+      </div>
+      <h2 class="dock-h">Inputs</h2>
+      <p class="dock-sub">Pick a sample, paste a transcript, or upload a .txt / .pdf (max {{ max_upload_mb }}MB).</p>
+
+      <form id="analyse-form" autocomplete="off">
+
+        <fieldset class="brick">
+          <legend><span class="brick-num">01a</span> Source</legend>
+          <label class="rad">
+            <input type="radio" name="source" value="samples" checked>
+            <span class="rad-mark"></span>
+            <span>Bundled sample</span>
+          </label>
+          <label class="rad">
+            <input type="radio" name="source" value="paste">
+            <span class="rad-mark"></span>
+            <span>Paste transcript</span>
+          </label>
+          <label class="rad">
+            <input type="radio" name="source" value="upload">
+            <span class="rad-mark"></span>
+            <span>Upload file (.txt / .pdf)</span>
+          </label>
+        </fieldset>
+
+        <fieldset class="brick" id="sample-card">
+          <legend><span class="brick-num">01b</span> Sample</legend>
+          <select id="sample-select" name="sample_id" class="ctrl">
+            {% for s in samples %}
+              <option value="{{ s.id }}">{{ s.label }}</option>
+            {% endfor %}
+            {% if not samples %}<option value="" disabled selected>(no samples on disk)</option>{% endif %}
+          </select>
+        </fieldset>
+
+        <fieldset class="brick" id="paste-card" hidden>
+          <legend><span class="brick-num">01c</span> Paste</legend>
+          <textarea id="paste-text" class="ctrl" rows="8" placeholder="Paste transcript text. Speaker tags like 'Tim Cook -- CEO:' detected automatically."></textarea>
+        </fieldset>
+
+        <fieldset class="brick" id="upload-card" hidden>
+          <legend><span class="brick-num">01d</span> Upload</legend>
+          <div id="drop-zone" class="drop-zone">
+            <input type="file" id="file-input" name="file" accept=".txt,.pdf" class="ctrl">
+            <p class="hint">Drag a .txt or .pdf here, or click. Max {{ max_upload_mb }}MB.</p>
+            <p id="drop-name" class="drop-name"></p>
+          </div>
+        </fieldset>
+
+        <fieldset class="brick">
+          <legend><span class="brick-num">01e</span> AI</legend>
+          <label class="chk">
+            <input type="checkbox" id="skip-ai">
+            <span class="chk-mark"></span>
+            <span>Skip AI extraction (free, deterministic only)</span>
+          </label>
+          <label class="field">
+            <span>Self-consistency runs</span>
+            <select id="self-consistency" class="ctrl mini">
+              <option value="1" selected>1x</option>
+              <option value="2">2x</option>
+              <option value="3">3x</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Model override</span>
+            <input type="text" id="model" class="ctrl" placeholder="deepseek-chat">
+          </label>
+        </fieldset>
+
+        <button type="submit" id="run-btn" class="cta">
+          <span>RUN ANALYSIS</span><span class="cta-arrow">&rarr;</span>
+        </button>
+        <p id="status-line" class="status" aria-live="polite"></p>
+      </form>
+
+      <div class="brick" style="margin-top:18px;">
+        <legend><span class="brick-num">02</span> SEC EDGAR lookup</legend>
+        <div class="edgar-row">
+          <input type="text" id="edgar-ticker" class="ctrl mini" placeholder="ticker e.g. AAPL">
+          <button type="button" id="edgar-btn" class="ghost-btn">LOOKUP</button>
+        </div>
+        <div id="edgar-result" class="edgar-result"></div>
+      </div>
+
+      <div class="brick" style="margin-top:18px;">
+        <legend><span class="brick-num">03</span> Multi-quarter</legend>
+        <p class="hint">Pick 2-4 samples and compare guidance evolution + tone trend.</p>
+        <div class="mq-checks" id="mq-checks">
+          {% for s in samples %}
+            <label class="chk">
+              <input type="checkbox" class="mq-pick" value="{{ s.id }}">
+              <span class="chk-mark"></span>
+              <span>{{ s.id }}</span>
+            </label>
+          {% endfor %}
+        </div>
+        <button type="button" id="mq-run" class="ghost-btn">COMPARE</button>
+      </div>
+
+      <div class="saved-runs" id="saved-runs-block" hidden>
+        <legend style="margin-top:18px;"><span class="brick-num">04</span> Saved runs</legend>
+        <ul class="saved-list" id="saved-list"></ul>
+        <button type="button" id="compare-btn" class="ghost-btn" hidden>COMPARE 2 SELECTED</button>
+      </div>
+    </section>
+
+    <section class="canvas">
+
+      <article id="empty-state" class="empty">
+        <div class="empty-numeral">07</div>
+        <p class="empty-lede">Pick a sample on the left, paste a transcript, or upload a file. The buy-side analyst's read prints here.</p>
+        <ul class="empty-bullets">
+          <li><span class="b-num">i.</span> Speaker-turn detection with role inference (CEO / CFO / EXEC / ANALYST / OPERATOR)</li>
+          <li><span class="b-num">ii.</span> Forward guidance extracted with metric, period, range, and verbatim quote</li>
+          <li><span class="b-num">iii.</span> Theme cards, analyst Q&amp;A grid, risk flags, bull/bear verdict</li>
+          <li><span class="b-num">iv.</span> Hedge / certainty / deflection rule detector + tone curve over the call</li>
+          <li><span class="b-num">v.</span> Multi-quarter compare, SEC EDGAR fetch, free-text follow-up</li>
+        </ul>
+      </article>
+
+      <div id="error-card" class="error-card hidden"></div>
+      <div id="warnings-card" class="warnings-card hidden">
+        <span class="warn-pill">PARSE NOTES</span>
+        <ul id="warnings-list"></ul>
+      </div>
+
+      <section id="result-pane" class="result-pane hidden">
+
+        <div class="run-meta">
+          <span class="rm-tag" id="rm-mode-tag">RUN</span>
+          <span class="rm-v" id="rm-company">--</span>
+          <span class="rm-sep">/</span>
+          <span class="rm-v" id="rm-ticker">--</span>
+          <span class="rm-sep">/</span>
+          <span class="rm-v" id="rm-period">--</span>
+          <span class="rm-spacer"></span>
+          <span class="rm-tag is-orange">ID</span>
+          <span class="rm-v" id="rm-id">--</span>
+          <button type="button" id="save-btn" class="micro-btn">SAVE</button>
+          <button type="button" id="share-btn" class="micro-btn">SHARE URL</button>
+          <button type="button" id="print-btn" class="micro-btn">PRINT</button>
+        </div>
+
+        <div id="hero" class="hero">
+          <div class="hero-prime">
+            <div class="hero-eye">
+              <span class="hero-num">02</span>
+              <span class="hero-lab">TONE</span>
+            </div>
+            <div class="hero-tone" id="hero-tone">--</div>
+            <div class="hero-foot">
+              <span class="hero-foot-k">CONFIDENCE</span>
+              <span class="hero-foot-v" id="hero-conf">--</span>
+            </div>
+          </div>
+          <div class="hero-stack">
+            <div class="stat">
+              <div class="k">HEDGE</div>
+              <div class="v" id="hero-hedge">--</div>
+            </div>
+            <div class="stat">
+              <div class="k">CERTAINTY</div>
+              <div class="v" id="hero-cert">--</div>
+            </div>
+            <div class="stat">
+              <div class="k">DEFLECTION</div>
+              <div class="v" id="hero-defl">--</div>
+            </div>
+            <div class="stat">
+              <div class="k">QUANT CLAIMS</div>
+              <div class="v" id="hero-claims">--</div>
+            </div>
+            <div class="stat">
+              <div class="k">ANALYSTS</div>
+              <div class="v" id="hero-analysts">--</div>
+            </div>
+            <div class="stat">
+              <div class="k">AI COST</div>
+              <div class="v" id="hero-cost">$0.00000</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="ai-card" class="ai-card hidden">
+          <div class="card-corner">03 / VERDICT</div>
+          <div class="ai-quote">&ldquo;</div>
+          <div class="ai-headline" id="ai-headline"></div>
+          <div class="ai-grid">
+            <div>
+              <div class="ai-lab is-cyan">BULL CASE</div>
+              <div class="ai-body" id="ai-bull"></div>
+            </div>
+            <div>
+              <div class="ai-lab is-orange">BEAR CASE</div>
+              <div class="ai-body" id="ai-bear"></div>
+            </div>
+          </div>
+          <div class="ai-actions">
+            <div class="ai-lab">ACTIONS</div>
+            <ul id="ai-actions"></ul>
+          </div>
+          <div class="followup">
+            <div class="ai-lab">ASK A FOLLOW-UP</div>
+            <div class="fu-row">
+              <input type="text" id="fu-input" class="ctrl"
+                     placeholder="e.g. how does management's tone compare to the prior quarter?">
+              <button type="button" id="fu-btn" class="ghost-btn">ASK</button>
+            </div>
+            <div id="fu-answer" class="fu-answer" hidden></div>
+            <p id="fu-status" class="hint"></p>
+          </div>
+        </div>
+
+        <div id="tone-card" class="tone-card hidden">
+          <div class="card-head">
+            <span class="card-num">04</span>
+            <span class="card-title">MANAGEMENT TONE CURVE</span>
+            <span class="card-meta">Per-turn sentiment + signal score. Click a chip to toggle a role.</span>
+          </div>
+          <div id="tone-host" class="tone-host"></div>
+          <div id="tone-tooltip" class="tone-tooltip" hidden></div>
+          <div class="legend" id="tone-legend">
+            <span class="lg-pill is-on" data-role="CEO" style="background:#FFD166">CEO</span>
+            <span class="lg-pill is-on" data-role="CFO" style="background:#06B6D4">CFO</span>
+            <span class="lg-pill is-on" data-role="EXEC" style="background:#A78BFA">EXEC</span>
+            <span class="lg-pill is-on" data-role="ANALYST" style="background:#FF6B00">ANALYST</span>
+            <span class="lg-pill is-on" data-role="OPERATOR" style="background:#6B7280">OPERATOR</span>
+          </div>
+        </div>
+
+        <div id="guidance-card" class="guidance-card hidden">
+          <div class="card-head">
+            <span class="card-num">05</span>
+            <span class="card-title">FORWARD GUIDANCE</span>
+            <span class="card-meta">Extracted line items with metric / period / direction / quote</span>
+          </div>
+          <table class="guidance-table" id="guidance-table"></table>
+        </div>
+
+        <div id="themes-card" class="themes-card hidden">
+          <div class="card-head">
+            <span class="card-num">06</span>
+            <span class="card-title">THEMES</span>
+            <span class="card-meta">Top topics weighted by narrative time</span>
+          </div>
+          <div class="theme-grid" id="theme-grid"></div>
+        </div>
+
+        <div id="qa-card" class="qa-card hidden">
+          <div class="card-head">
+            <span class="card-num">07</span>
+            <span class="card-title">ANALYST Q &amp; A</span>
+            <span class="card-meta">Tension and management clarity per exchange</span>
+            <input type="text" id="qa-filter" class="ctrl mini qa-filter-input" placeholder="filter by analyst, firm, keyword">
+          </div>
+          <table class="qa-table" id="qa-table"></table>
+          <p id="qa-filter-meta" class="hint"></p>
+        </div>
+
+        <div id="risks-card" class="risks-card hidden">
+          <div class="card-head">
+            <span class="card-num">08</span>
+            <span class="card-title">RISK FLAGS</span>
+            <span class="card-meta">Categorised by severity</span>
+          </div>
+          <ul class="risks-list" id="risks-list"></ul>
+        </div>
+
+        <div id="quotes-card" class="quotes-card hidden">
+          <div class="card-head">
+            <span class="card-num">09</span>
+            <span class="card-title">TONE SIGNALS &amp; QUANT CLAIMS</span>
+            <span class="card-meta">Every hedge / certainty / deflection phrase + every $ and % cited</span>
+          </div>
+          <details class="qsub">
+            <summary>Tone signals (<span id="qsub-tone-count">0</span>)</summary>
+            <table class="quotes-table" id="phrase-table"></table>
+          </details>
+          <details class="qsub">
+            <summary>Quantitative claims (<span id="qsub-claims-count">0</span>)</summary>
+            <table class="quotes-table" id="claims-table"></table>
+          </details>
+        </div>
+
+        <div id="mq-card" class="mq-card hidden">
+          <div class="card-head">
+            <span class="card-num">10</span>
+            <span class="card-title">MULTI-QUARTER COMPARE</span>
+            <span class="card-meta">Tone and revenue guidance trend across quarters</span>
+          </div>
+          <table class="mq-table" id="mq-table"></table>
+        </div>
+
+        <div id="compare-card" class="compare-card hidden">
+          <div class="card-head">
+            <span class="card-num">11</span>
+            <span class="card-title">COMPARE TWO RUNS</span>
+            <span class="card-meta">Pick two saved runs in the dock and click Compare</span>
+          </div>
+          <table class="compare-table" id="compare-table"></table>
+        </div>
+
+        <div id="downloads" class="downloads hidden">
+          <div class="dl-head">
+            <span class="card-num">12</span>
+            <span class="card-title">EXPORT</span>
+          </div>
+          <div class="dl-row">
+            <a id="dl-xlsx" class="dl"><span class="dl-tag">XLSX</span><span class="dl-name">Workbook</span></a>
+            <a id="dl-qa-csv" class="dl"><span class="dl-tag">CSV</span><span class="dl-name">Q&amp;A grid</span></a>
+            <a id="dl-g-csv" class="dl"><span class="dl-tag">CSV</span><span class="dl-name">Guidance</span></a>
+            <a id="dl-pdf" class="dl"><span class="dl-tag">PDF</span><span class="dl-name">4-page memo</span></a>
+            <a id="dl-pptx" class="dl"><span class="dl-tag">PPTX</span><span class="dl-name">5-slide deck</span></a>
+            <button type="button" id="dl-md" class="dl"><span class="dl-tag">MD</span><span class="dl-name">Slack/email brief</span></button>
+            <button type="button" id="copy-verdict" class="dl"><span class="dl-tag">COPY</span><span class="dl-name">Verdict to clipboard</span></button>
+          </div>
+        </div>
+
+      </section>
+    </section>
+  </main>
+
+  <footer class="colophon">
+    <span class="col-mark">/</span>
+    <span class="col-text">Local-only on 127.0.0.1:1007. No data leaves your machine except the AI digest.</span>
+    <span class="col-spacer"></span>
+    <span class="col-text">SAFWAN AHMED &middot; 30 DAY FINANCE + AI SPRINT</span>
+  </footer>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

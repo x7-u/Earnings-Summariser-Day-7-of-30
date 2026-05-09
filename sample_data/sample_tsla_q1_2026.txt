@@ -1,0 +1,62 @@
+Company: Tesla, Inc.
+Ticker: TSLA
+Fiscal Period: Q1 FY2026
+Call Date: 2026-04-23
+
+Operator: Good afternoon and welcome to Tesla's first quarter 2026 financial results conference call. As a reminder this call is being recorded. I would now like to turn the call over to Martin Viecha, Vice President of Investor Relations.
+
+Martin Viecha -- Vice President, Investor Relations: Thank you operator. Welcome to Tesla's first quarter 2026 earnings call. Joining us today is Elon Musk, our CEO, and Vaibhav Taneja, our CFO. Before we begin, I would like to remind you that this call may include forward-looking statements. Actual results may differ. With that, I will hand it over to Elon.
+
+Elon Musk -- CEO: Thanks Martin. Q1 was a record quarter for the company on multiple fronts. We delivered 484,000 vehicles, up 4 percent year over year and ahead of consensus. Revenue came in at $24.8 billion, up 7 percent year over year. Automotive gross margin excluding regulatory credits was 18.2 percent, up 90 basis points sequentially. Free cash flow was $1.4 billion. We exceeded our own internal expectations on Cybertruck deliveries, hitting around 18,000 units in the quarter, and we are committed to ramping production further in Q2. Energy storage deployments hit 12.4 gigawatt-hours, an all-time high, up 78 percent year over year. We are confident this is a multi-decade story. On Optimus, we have moved from prototype to limited production in our Fremont line and we will deliver the first units to internal Tesla factory use cases later this year. We expect to begin external customer deliveries in 2027.
+
+Vaibhav Taneja -- CFO: Thank you Elon. A few financial details. Operating income was $1.9 billion, an operating margin of 7.7 percent. Cash and investments at quarter end were $32.4 billion. We expect capex for the full year to be in the range of $11 billion to $13 billion, broadly in line with our previous guidance. We anticipate gross margin improvement in Q2 driven by Cybertruck ramp and operating leverage. On the regulatory credit revenue line, we recognised $445 million, broadly flat sequentially. Operating expenses were $1.6 billion, up 4 percent year over year reflecting our investments in AI compute and Optimus. We are confident we can hold OpEx growth below revenue growth for the balance of the year.
+
+Operator: Thank you. We will now begin the question and answer session. The first question is from Adam Jonas of Morgan Stanley.
+
+Adam Jonas -- Morgan Stanley: Thanks. Elon, on Cybertruck, you mentioned 18,000 units delivered. What is the right run rate to think about exiting Q4? And where does the gross margin on Cybertruck land relative to Model Y by year end?
+
+Elon Musk -- CEO: We expect to be running at around 8,000 to 10,000 units a week by Q4, give or take. So roughly 100,000 a quarter exit run rate. On margin we expect to be at parity with Model Y by mid-2027, possibly earlier if commodity prices stay where they are.
+
+Adam Jonas -- Morgan Stanley: And the Mexico facility?
+
+Elon Musk -- CEO: We are working to break ground in the second half. We are not in a position to give a more specific timeline yet.
+
+Operator: Next question is from Pierre Ferragu of New Street Research.
+
+Pierre Ferragu -- New Street Research: On Optimus, can you size the addressable market in your view, and the unit economics at scale?
+
+Elon Musk -- CEO: I think Optimus will eventually be the most valuable part of Tesla. We are talking about a product that addresses essentially every form of human labour. The unit economics at maturity should give us around 50 percent gross margin. But that is a 5 to 10 year story, not a 1 year story. Near term we are focused on getting to a few thousand units of internal production this year.
+
+Operator: Next question is from Toni Sacconaghi of Bernstein.
+
+Toni Sacconaghi -- Bernstein: Vaibhav, on auto gross margin ex credits, you said 18.2 percent. That is up but still below what some peers print. How should we think about the path back to 25 percent plus?
+
+Vaibhav Taneja -- CFO: We expect ongoing improvement quarter by quarter as Cybertruck scales and as we benefit from the cost reductions on the new factory line in Berlin. We are not going to commit to a quarterly path, but we expect to be back above 22 percent on a quarterly basis by the end of 2026, all else equal.
+
+Toni Sacconaghi -- Bernstein: And the regulatory credit number, can you guide on that for the balance of the year?
+
+Vaibhav Taneja -- CFO: We don't break that out forward looking, but we expect it to be broadly stable.
+
+Operator: Next question is from Dan Levy of Barclays.
+
+Dan Levy -- Barclays: Question on demand. China was strong this quarter. How are you thinking about the second half given the macro and the new domestic competition?
+
+Elon Musk -- CEO: We are seeing some softness in China in April, partly seasonal and partly the macro. We do not see any structural issue with Tesla demand in China. We are confident our refreshed Model Y is well positioned. There is real competition from BYD and others, but that is healthy.
+
+Operator: Next question is from Colin Langan of Wells Fargo.
+
+Colin Langan -- Wells Fargo: On the autonomy roadmap, when do you think you can move from supervised to unsupervised FSD in any market?
+
+Elon Musk -- CEO: Without question we will achieve unsupervised FSD in California and Texas this calendar year. We are running internal trials right now with safety drivers, and the data shows a meaningful improvement quarter over quarter. We are committed to the unsupervised milestone. The robotaxi launch is on track for August.
+
+Operator: Last question is from Mark Delaney of Goldman Sachs.
+
+Mark Delaney -- Goldman Sachs: A two part on capex. The $11 to $13 billion range is wide. What is the swing factor? And does it include anything for the Mexico facility or the next gigafactory?
+
+Vaibhav Taneja -- CFO: The swing is mostly Cybertruck tooling phasing and the AI training compute build-out at Cortex. Mexico is included at a placeholder level. The next gigafactory is not included in this range.
+
+Operator: Thank you. That concludes today's question and answer session. I would now like to turn the call back to Mr Musk.
+
+Elon Musk -- CEO: Thanks everyone. To wrap up, Q1 was a record on multiple metrics, Cybertruck is ramping, energy storage hit a new high, and we are confident in the path to unsupervised autonomy this year. Thanks for joining and we look forward to talking to you on the Q2 call.
+
+Operator: This concludes today's call. You may now disconnect.
